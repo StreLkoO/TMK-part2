@@ -53,7 +53,7 @@
             this.ButtonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonOk.Name = "ButtonOk";
             this.ButtonOk.Size = new System.Drawing.Size(82, 22);
-            this.ButtonOk.TabIndex = 0;
+            this.ButtonOk.TabIndex = 5;
             this.ButtonOk.Text = "ОК";
             this.ButtonOk.UseVisualStyleBackColor = true;
             this.ButtonOk.Click += new System.EventHandler(this.ButtonOk_Click);
@@ -64,7 +64,7 @@
             this.ButtonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(82, 22);
-            this.ButtonCancel.TabIndex = 1;
+            this.ButtonCancel.TabIndex = 6;
             this.ButtonCancel.Text = "Отмена";
             this.ButtonCancel.UseVisualStyleBackColor = true;
             this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
@@ -74,27 +74,27 @@
             this.ComboBoxSteelGrade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ComboBoxSteelGrade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxSteelGrade.FormattingEnabled = true;
-            this.ComboBoxSteelGrade.Location = new System.Drawing.Point(120, 60);
+            this.ComboBoxSteelGrade.Location = new System.Drawing.Point(155, 60);
             this.ComboBoxSteelGrade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBoxSteelGrade.Name = "ComboBoxSteelGrade";
-            this.ComboBoxSteelGrade.Size = new System.Drawing.Size(133, 23);
-            this.ComboBoxSteelGrade.TabIndex = 2;
+            this.ComboBoxSteelGrade.Size = new System.Drawing.Size(98, 23);
+            this.ComboBoxSteelGrade.TabIndex = 1;
             // 
             // TextBoxRadius
             // 
-            this.TextBoxRadius.Location = new System.Drawing.Point(172, 110);
+            this.TextBoxRadius.Location = new System.Drawing.Point(155, 110);
             this.TextBoxRadius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxRadius.Name = "TextBoxRadius";
-            this.TextBoxRadius.Size = new System.Drawing.Size(80, 23);
+            this.TextBoxRadius.Size = new System.Drawing.Size(97, 23);
             this.TextBoxRadius.TabIndex = 3;
             // 
             // TextBoxLenght
             // 
-            this.TextBoxLenght.Location = new System.Drawing.Point(172, 86);
+            this.TextBoxLenght.Location = new System.Drawing.Point(155, 86);
             this.TextBoxLenght.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxLenght.Name = "TextBoxLenght";
-            this.TextBoxLenght.Size = new System.Drawing.Size(80, 23);
-            this.TextBoxLenght.TabIndex = 4;
+            this.TextBoxLenght.Size = new System.Drawing.Size(97, 23);
+            this.TextBoxLenght.TabIndex = 2;
             // 
             // CheckBoxIsOk
             // 
@@ -103,25 +103,25 @@
             this.CheckBoxIsOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckBoxIsOk.Name = "CheckBoxIsOk";
             this.CheckBoxIsOk.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxIsOk.TabIndex = 5;
+            this.CheckBoxIsOk.TabIndex = 0;
             this.CheckBoxIsOk.UseVisualStyleBackColor = true;
             // 
             // TextBoxWeight
             // 
-            this.TextBoxWeight.Location = new System.Drawing.Point(172, 135);
+            this.TextBoxWeight.Location = new System.Drawing.Point(155, 135);
             this.TextBoxWeight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxWeight.Name = "TextBoxWeight";
-            this.TextBoxWeight.Size = new System.Drawing.Size(80, 23);
-            this.TextBoxWeight.TabIndex = 6;
+            this.TextBoxWeight.Size = new System.Drawing.Size(97, 23);
+            this.TextBoxWeight.TabIndex = 4;
             // 
             // LabelIsOk
             // 
             this.LabelIsOk.AutoSize = true;
             this.LabelIsOk.Location = new System.Drawing.Point(22, 38);
             this.LabelIsOk.Name = "LabelIsOk";
-            this.LabelIsOk.Size = new System.Drawing.Size(139, 15);
+            this.LabelIsOk.Size = new System.Drawing.Size(126, 15);
             this.LabelIsOk.TabIndex = 7;
-            this.LabelIsOk.Text = "Годна к использованию";
+            this.LabelIsOk.Text = "Можно использовать";
             // 
             // LabelSteelGrade
             // 
@@ -168,10 +168,10 @@
             // TextBoxNumber
             // 
             this.TextBoxNumber.Enabled = false;
-            this.TextBoxNumber.Location = new System.Drawing.Point(172, 15);
+            this.TextBoxNumber.Location = new System.Drawing.Point(155, 15);
             this.TextBoxNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxNumber.Name = "TextBoxNumber";
-            this.TextBoxNumber.Size = new System.Drawing.Size(80, 23);
+            this.TextBoxNumber.Size = new System.Drawing.Size(97, 23);
             this.TextBoxNumber.TabIndex = 12;
             // 
             // LabelNumber

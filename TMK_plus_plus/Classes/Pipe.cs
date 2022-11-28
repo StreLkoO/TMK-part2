@@ -17,7 +17,7 @@ namespace TMK_plus_plus.Classes
         public int Lenght { get; set; }
         public int Radius { get; set; }
         public int Weight { get; set; }
-
+        public PipePackage? Package { get; set; }
         public string Error => string.Empty;
         public string this[string columnName]
         {
@@ -43,8 +43,6 @@ namespace TMK_plus_plus.Classes
             }
         }
 
-        public Object Clone() => MemberwiseClone();
-
         public Pipe(object[] objects)
         {
             Number = (int)objects[0];
@@ -53,6 +51,8 @@ namespace TMK_plus_plus.Classes
             Lenght = (int)objects[3];
             Radius = (int)objects[4];
             Weight = (int)objects[5];
+            if (objects[6] != DBNull.Value)
+                Package = (PipePackage)objects[6];
         }
 
         public Pipe()

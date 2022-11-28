@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,27 +9,27 @@ using TMK_plus_plus.Interfaces;
 
 namespace TMK_plus_plus.Classes
 {
-    internal class PipeXmlReader : IPipeRepo
+    public class PackageXmlReader : IPackageRepo
     {
         private readonly string path;
-        private List<Pipe> pipes;
+        private List<PipePackage> packages;
 
-        public PipeXmlReader(string path)
+        public PackageXmlReader(string path)
         {
             if (string.IsNullOrEmpty(path))
                 throw new ArgumentException(nameof(path));
 
             this.path = path;
-            pipes = new List<Pipe>();
+            packages = new List<PipePackage>();
         }
 
         private void WriteFile()
         {
-            var serializer = new XmlSerializer(typeof(List<Pipe>));
+            var serializer = new XmlSerializer(typeof(List<PipePackage>));
 
             using (var writer = new StreamWriter(path, false))
             {
-                serializer.Serialize(writer, pipes);
+                serializer.Serialize(writer, packages);
             }
         }
 
@@ -48,33 +47,33 @@ namespace TMK_plus_plus.Classes
                 return;
             }
 
-            var serializer = new XmlSerializer(typeof(List<Pipe>));
+            var serializer = new XmlSerializer(typeof(List<PipePackage>));
             using (var reader = new StringReader(contents))
             {
-                var records = (List<Pipe>)serializer.Deserialize(reader)!;
+                var records = (List<PipePackage>)serializer.Deserialize(reader)!;
 
-                pipes.Clear();
-                pipes.AddRange(records);
+                packages.Clear();
+                packages.AddRange(records);
             }
         }
 
-        public async Task<bool> AddPipe(Pipe pipe)
+        public async Task<bool> AddPackage(PipePackage package)
         {
-            if (pipe == null)
-                throw new ArgumentNullException(nameof(pipe));
-            if (pipe.Number != 0)
-                throw new ArgumentException(nameof(pipe));
+            if (package == null)
+                throw new ArgumentNullException(nameof(package));
+            if (package.Number != 0)
+                throw new ArgumentException(nameof(package));
 
-            if (pipes.Count == 0)
+            if (packages.Count == 0)
             {
-                pipe.Number = 1;
+                package.Number = 1;
             }
             else
             {
-                pipe.Number = pipes.Max(p => p.Number) + 1;
+                package.Number = packages.Max(p => p.Number) + 1;
             }
 
-            pipes.Add(pipe);
+            packages.Add(package);
 
             try
             {
@@ -89,14 +88,14 @@ namespace TMK_plus_plus.Classes
             return true;
         }
 
-        public async Task<bool> DeletePipe(Pipe pipe)
+        public async Task<bool> DeletePackage(PipePackage package)
         {
-            if (pipe == null)
-                throw new ArgumentNullException(nameof(pipe));
-            Pipe? searchPipe = pipes.Find(p => p.Number == pipe.Number);
-            if (searchPipe == null)
-                throw new ArgumentException(nameof(pipe));
-            pipes.Remove(searchPipe);
+            if (package == null)
+                throw new ArgumentNullException(nameof(package));
+            PipePackage? searchPackage = packages.Find(p => p.Number == package.Number);
+            if (searchPackage == null)
+                throw new ArgumentException(nameof(package));
+            packages.Remove(searchPackage);
             try
             {
                 await Task.Run(() => WriteFile());
@@ -109,7 +108,7 @@ namespace TMK_plus_plus.Classes
             return true;
         }
 
-        public async Task<List<Pipe>> GetPipes()
+        public async Task<List<PipePackage>> GetPackages()
         {
             try
             {
@@ -120,18 +119,18 @@ namespace TMK_plus_plus.Classes
                 Debug.WriteLine($"Ошибка {ex.Message} чтения файла {path}");
             }
 
-            return pipes;
+            return packages;
         }
 
-        public async Task<bool> UpdatePipe(Pipe pipe)
+        public async Task<bool> UpdatePackage(PipePackage package)
         {
-            if (pipe == null)
-                throw new ArgumentNullException(nameof(pipe));
-            Pipe? searchPipe = pipes.Find(p => p.Number == pipe.Number);
-            if (searchPipe == null)
-                throw new ArgumentException(nameof(pipe));
-            int num = pipes.IndexOf(searchPipe);
-            pipes[num] = pipe;
+            if (package == null)
+                throw new ArgumentNullException(nameof(package));
+            PipePackage? searchPackage = packages.Find(p => p.Number == package.Number);
+            if (searchPackage == null)
+                throw new ArgumentException(nameof(package));
+            int num = packages.IndexOf(searchPackage);
+            packages[num] = package;
             try
             {
                 await Task.Run(() => WriteFile());

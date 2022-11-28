@@ -45,11 +45,11 @@ namespace TMK_plus_plus.Forms
 
             errorProvider1.DataSource = bsPipe;
 
-            bsPipe.CurrentItemChanged += bsPipe_CurrentItemChanged;
+            bsPipe.CurrentItemChanged += bsPipeCurrentItemChanged;
 
         }
 
-        private void bsPipe_CurrentItemChanged(object? sender, EventArgs e)
+        private void bsPipeCurrentItemChanged(object? sender, EventArgs e)
         {
             string error = String.Empty;
             foreach (var prop in CurrentPipe.GetType().GetProperties())

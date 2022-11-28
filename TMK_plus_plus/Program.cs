@@ -6,6 +6,7 @@ namespace TMK_plus_plus
     internal static class Program
     {
         public static IPipeRepo PipeReader;
+        public static IPackageRepo PackageReader;
         public static List<string> SteelGrades = new()
         {
             "ст2сп", "ст4сп", "ст5сп", "ст6сп", "10",
@@ -23,6 +24,8 @@ namespace TMK_plus_plus
             ApplicationConfiguration.Initialize();
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pipes.xml");
             PipeReader = new PipeXmlReader(path);
+            var pathPackage = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "packages.xml");
+            PackageReader = new PackageXmlReader(pathPackage);
             Application.Run(new MainForm());
         }
     }
